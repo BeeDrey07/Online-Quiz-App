@@ -17,13 +17,13 @@ const AddQuestion = () => {
 	}, [])
 
 	const fetchSubjects = async () => {
-		try {
-			const subjectsData = await getSubjects()
-			setSubjectOptions(subjectsData)
-		} catch (error) {
-			console.error(error)
-		}
-	}
+        try {
+            const subjectsData = await getSubjects();
+            setSubjectOptions(subjectsData || []); // Ensure subjectsData is an array or default to an empty array
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 	const handleAddChoice = () => {
 		const lastChoice = choices[choices.length - 1]
